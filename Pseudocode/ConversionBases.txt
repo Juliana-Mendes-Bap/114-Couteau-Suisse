@@ -1,0 +1,56 @@
+FONCTION RecupererDonneesUtilsateur()
+{
+	DONNER OPTION DE CONVERSION
+	SWITCH (entreeUtilisateur)
+	{
+		case 1:
+			APPELLER CONVERTISSEUR DÉCIMAL > BINAIRE
+			break;
+		case 2:
+			APPELLER CONVERTISSEUR BINAIRE > DÉCIMAL
+			break;
+		case 3:
+			APPELLER CONVERTISSEUR BINAIRE > OCTAL
+			break;
+		case 4:
+			APPELLER CONVERTISSEUR OCTAL > BINAIRE
+			break;
+	}
+}
+FIN FONCTION
+
+FONCTION Convertisseur10>2()
+{
+	RÉCUPERER LE NOMBRE DE L'UTILISATEUR
+	LE CONVERTIR DE DÉCIMAL À BINAIRE
+	(Convert.ToString(Convert.ToInt32(nombre, baseDecimal), baseBinaire);) // Code qui fait la conversion des nombres dépendant de la base
+	AFFICHER RÉSULTAT
+}
+FIN FONCTION
+
+FONCTION Convertisseur2>10()
+{
+	RÉCUPERER LE NOMBRE DE L'UTILISATEUR
+	LE CONVERTIR DE BINAIRE À DÉCIMAL
+	(Convert.ToString(Convert.ToInt32(nombre, baseBinaire), baseDecimal);) // Code qui fait la conversion des nombres dépendant de la base
+	AFFICHER RÉSULTAT
+}
+FIN FONCTION
+
+FONCTION Convertisseur2>8()
+{
+	RÉCUPERER LE NOMBRE DE L'UTILISATEUR
+	LE CONVERTIR DE BINAIRE À OCTAL
+	(Convert.ToString(Convert.ToInt32(nombre, baseBinaire), baseOctal);) // Code qui fait la conversion des nombres dépendant de la base
+	AFFICHER RÉSULTAT
+}
+FIN FONCTION
+
+FONCTION Convertisseur8>2()
+{
+	RÉCUPERER LE NOMBRE DE L'UTILISATEUR
+	LE CONVERTIR DE OCTAL À BINAIRE
+	(Convert.ToString(Convert.ToInt32(nombre, baseOctal), baseBinaire);) // Code qui fait la conversion des nombres dépendant de la base
+	AFFICHER RÉSULTAT
+}
+FIN FONCTION
