@@ -10,9 +10,36 @@ namespace Couteau_Suisse
     {
         static void Main(string[] args)
         {
-            ConvertisseurMorse Morse = new ConvertisseurMorse();
+            ChoisirConvertisseur();
+        }
 
-            Morse.ConvertirEnMorse();
+        public static void ChoisirConvertisseur()
+        {
+            ConvertisseurMorse Morse = new ConvertisseurMorse();
+            ConversionBases Bases = new ConversionBases();
+
+            Console.WriteLine("=== Couteau Suisse – Utilitaires ===");
+            Console.WriteLine("1. Convertir du texte en code Morse");
+            Console.WriteLine("2. Convertir des nombres entre différentes bases (Décimal <> Binaire <> Octal)");
+            Console.WriteLine("3. (à venir)");
+            do
+            {
+                Console.Write("Veuillez entrer votre choix : ");
+                string entreeUtilisateur = Console.ReadLine();
+
+                switch (entreeUtilisateur)
+                {
+                    case "1":
+                        Console.Clear();
+                        Morse.ConvertirEnMorse();
+                        break;
+                    case "2":
+                        Console.Clear();
+                        Bases.test();
+                        break;
+                }
+            }
+            while (true);
         }
     }
 }

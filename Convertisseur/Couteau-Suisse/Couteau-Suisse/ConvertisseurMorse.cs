@@ -28,7 +28,7 @@ namespace Couteau_Suisse
                 else
                 {
                     Console.WriteLine($"\nRésultat de la conversion en code morse :\n{phraseAConvertir}");
-                    Environment.Exit(0);
+                    ContinuerProgram();
                 }
             }
             while (true);
@@ -157,6 +157,42 @@ namespace Couteau_Suisse
                 phraseAConvertir += " ";
             }
             return phraseAConvertir;
+        }
+
+        public void ContinuerProgram()
+        {
+            do
+            {
+                Console.WriteLine("\n\nVoulez vous continuer a convertir? (O/N) : ");
+                string entreeUser = Console.ReadLine().ToUpper();
+
+                switch (entreeUser)
+                {
+                    case "O":
+                        Console.Clear();
+                        do
+                        {
+                            Console.WriteLine("Voulez vous changer de type de conversion? (O/N) : ");
+                            string entreeUtilisateur = Console.ReadLine().ToUpper();
+                            switch (entreeUtilisateur)
+                            {
+                                case "O":
+                                    Console.Clear();
+                                    Program.ChoisirConvertisseur();
+                                    break;
+                                case "N":
+                                    Console.Clear();
+                                    ConvertirEnMorse();
+                                    break;
+                            }
+                        }
+                        while (true);
+                    case "N":
+                        Environment.Exit(0);
+                        break;
+                }
+            }
+            while (true);
         }
     }
 }
