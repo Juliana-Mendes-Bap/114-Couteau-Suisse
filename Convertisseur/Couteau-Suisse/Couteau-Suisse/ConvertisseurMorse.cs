@@ -11,14 +11,19 @@ namespace Couteau_Suisse
     {
         string phraseAConvertir;
 
+        /// <summary>
+        /// Méthode que prend l'entrée de l'utilisateur, la transforme tout en majuscule et les accents en sans accents.
+        /// </summary>
         public void ConvertirEnMorse()
         {
             do
             {
                 Console.Write("Entrez le texte que vous voulez convertir : ");
                 string entreeDUtilisateur = Console.ReadLine();
+                // Le prochaines deux lignes font la convertion du texte avec accents en texte sans accents.
                 entreeDUtilisateur = entreeDUtilisateur.Normalize(NormalizationForm.FormD);
                 var texteNormal = entreeDUtilisateur.Where(c => CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark).ToArray();
+                // Cette fonction va mettre tout le texte en majuscule.
                 string texteMajuscule = new string(texteNormal).Normalize(NormalizationForm.FormC).ToUpper();
                 string convertirPhrase = AjouterCodeMorse(texteMajuscule);
                 if (entreeDUtilisateur == "")
@@ -34,6 +39,11 @@ namespace Couteau_Suisse
             while (true);
         }
 
+        /// <summary>
+        /// Méthode qui va prendre l'entrée de l'utilisateur, comparer chaque lettre, la convertir, la retourner pour l'afficher.
+        /// </summary>
+        /// <param name="entreeUtilisateur"></param>
+        /// <returns></returns>
         public string AjouterCodeMorse(string entreeUtilisateur)
         {
             foreach (var letter in entreeUtilisateur)
@@ -159,6 +169,9 @@ namespace Couteau_Suisse
             return phraseAConvertir;
         }
 
+        /// <summary>
+        /// Méthode qui demande à l'utilisateur s'il veut continuer le program, et si oui, s'il veut faire d'autre type de conversions.
+        /// </summary>
         public void ContinuerProgram()
         {
             do
@@ -182,6 +195,7 @@ namespace Couteau_Suisse
                                     break;
                                 case "N":
                                     Console.Clear();
+                                    phraseAConvertir = "";
                                     ConvertirEnMorse();
                                     break;
                             }
