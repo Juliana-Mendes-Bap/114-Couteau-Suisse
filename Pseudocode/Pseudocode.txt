@@ -1,0 +1,20 @@
+FONCTION ConvertirLettreEnMorse(entreeUtilisateur)
+	SI contientAccents ALORS
+		Écrire message d'avertissement
+	FIN SI
+
+	POUR CHAQUE lettre DANS entreeUtilisateur
+		METTRE lettre EN MAJUSCULE
+		SWITCH(lettre)
+		{
+			CASE "A"
+				ECRIRE(".-")
+			TERMINER
+			CASE "B"
+				ECRIRE("-...")
+			TERMINER
+			[...]
+			DEFAULT:""
+		}
+	FIN POUR CHAQUE
+FIN FONCTION
