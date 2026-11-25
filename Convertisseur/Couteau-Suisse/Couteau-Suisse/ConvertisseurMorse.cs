@@ -182,7 +182,6 @@ namespace Couteau_Suisse
                 switch (entreeUser)
                 {
                     case "O":
-                        Console.Clear();
                         do
                         {
                             Console.WriteLine("Voulez vous changer de type de conversion? (O/N) : ");

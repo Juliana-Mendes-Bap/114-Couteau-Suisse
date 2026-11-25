@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Couteau_Suisse
@@ -27,6 +28,11 @@ namespace Couteau_Suisse
                 Console.Write("Veuillez entrer votre choix : ");
                 string entreeUtilisateur = Console.ReadLine();
 
+                if (Regex.IsMatch(entreeUtilisateur, "[^1-3]") || !Regex.IsMatch(entreeUtilisateur, "[^a-z]") || !Regex.IsMatch(entreeUtilisateur, "[^A-Z]"))
+                {
+                    Console.WriteLine("Entrée invalide! Ressayer.\n");
+                }
+
                 switch (entreeUtilisateur)
                 {
                     case "1":
@@ -35,7 +41,7 @@ namespace Couteau_Suisse
                         break;
                     case "2":
                         Console.Clear();
-                        Bases.test();
+                        Bases.ChoisirTypeConversion();
                         break;
                 }
             }
